@@ -231,7 +231,7 @@ GROUP BY STUDIO_NAME;
 --Indica el número de premios a los que estuvo nominado un actor, pero que no ha conseguido --
 --(Si una película está nominada a un premio, su actor también lo está) --
 
-SELECT ACTOR_NAME AS Actor, COUNT(AWARD_ALMOST_WIN) AS Premios_Solo_Nominados
+SELECT ACTOR_NAME AS Actor, SUM(AWARD_ALMOST_WIN) AS Premios_Solo_Nominados
 FROM MOVIES M 
 JOIN AWARDS AW ON AW.MOVIE_ID=M.MOVIE_ID
 JOIN MOVIES_ACTORS MA ON MA.MOVIE_ID=M.MOVIE_ID
@@ -322,4 +322,6 @@ WHERE RIGHT(U.USER_PHONE, 1) IN (
 SELECT CAST(N.NATIONALITY_ID AS VARCHAR) FROM NATIONALITIES N
 )) AND UM1.ACCESS_DATE =(SELECT MIN(UM2.ACCESS_DATE) FROM USER_MOVIE_ACCESS UM2 WHERE UM2.USER_ID=U1.USER_ID)
 GROUP BY MOVIE_NAME, USER_NAME
-ORDER BY USER_NAME ASC;
+ORDER BY USER_NAME ASC;E j e r c i c i o s   C o n s u l t a s   B D 
+ 
+ 
